@@ -1,0 +1,31 @@
+﻿@model IEnumerable<api.Models.Profile>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Image</th>
+            <th>Post Code</th>
+            <th>City</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var profile in Model)
+        {
+            <tr>
+                <td>@profile.Id</td>
+                <td>@profile.First_Name</td>
+                <td>@profile.Last_Name</td>
+                <td>@profile.Email</td>
+                <td><img src="@profile.Image" alt="Profile Image" style="max-width: 100px; max-height: 100px;" /></td>
+                <td>@profile.Post_Code</td>
+                <td>@profile.City</td>
+                <td>@profile.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>

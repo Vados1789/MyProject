@@ -37,8 +37,8 @@ import {
 
 const LinkItems = [
   { name: 'Home', icon: FiHome, href: '/' },
-  { name: 'Profile', icon: FiTrendingUp, href: '/profile' }, // Add the href property here
-  { name: 'Explore', icon: FiCompass, href: '/explore' },
+  { name: 'Friends', icon: FiTrendingUp, href: '/friends' }, // Add the href property here
+  { name: 'MyProfile', icon: FiCompass, href: '/profile' },
   { name: 'Favourites', icon: FiStar, href: '/favourites' },
   { name: 'Settings', icon: FiSettings, href: '/settings' },
 ];

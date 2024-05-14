@@ -1,0 +1,14 @@
+CREATE TABLE Logins (
+    id INT PRIMARY KEY IDENTITY,
+    profile_id INT,
+    username VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    FOREIGN KEY (profile_id) REFERENCES Profiles(id)
+);
+
+INSERT INTO Logins (profile_id, username, password) VALUES
+(1, 'a@gmail.com', '1234');
+
+-- Inserting test data for profile_id = 2
+INSERT INTO Logins (profile_id, username, password) VALUES
+(2, 'b@gmail.com', '1234');
