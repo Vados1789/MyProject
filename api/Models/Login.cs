@@ -10,7 +10,7 @@ namespace api.Models
 
         // Update the property name to match the database column name
         [ForeignKey("profile_id")]
-        public int profile_id { get; set; }
+        public int ProfileId { get; set; }
 
         [Required]
         [StringLength(100)]

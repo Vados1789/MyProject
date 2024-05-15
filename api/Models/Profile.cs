@@ -31,5 +31,6 @@ namespace api.Models
 
         [StringLength(255)]
         public string Address { get; set; }
+        public Login Login { get; set; }
     }
 }

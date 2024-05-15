@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using api.Models;
+using api.Data.Configurations;
 
 namespace api.Data
 {
@@ -16,10 +17,11 @@ namespace api.Data
         public DbSet<Login> Logins { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Login>()
-                .HasOne(l => l.Profile)
-                .WithMany()
-                .HasForeignKey(l => l.profile_id); // Specify foreign key
+            modelBuilder.ApplyConfiguration(new LoginConfiguration());
+            //modelBuilder.Entity<Login>()
+            //    .HasOne(l => l.Profile)
+            //    .WithMany()
+            //    .HasForeignKey(l => l.profile_id); // Specify foreign key
 
             // Other entity configurations...
         }
