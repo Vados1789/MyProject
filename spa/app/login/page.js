@@ -10,7 +10,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
-const Login = () => {
+const Login = ({ setIsLoggedIn, setProfileData }) => {
   const toast = useToast();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,6 +39,8 @@ const Login = () => {
       console.log(data); // For debugging, you can handle the response data here
 
       // Successful login
+      setIsLoggedIn(true);
+      setProfileData(data);
       toast({
         title: 'Login successful',
         status: 'success',

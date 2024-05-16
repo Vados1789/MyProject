@@ -1,61 +1,41 @@
-'use client'; // Add this line to mark the component for client-side execution
+'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Image } from '@chakra-ui/react';
 
-function Profile() {
-  const [profiles, setProfiles] = useState([]);
-
-  useEffect(() => {
-    const fetchProfiles = async () => {
-      try {
-        const response = await fetch('http://localhost:5271/friends');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        console.log(data);
-        setProfiles(data);
-      } catch (error) {
-        console.error('There was a problem with your fetch operation:', error);
-      }
-    };
-
-    fetchProfiles();
-  }, []);
-
+function Profile({ profileData }) {
   return (
-    <div>Profile</div>
-    // <div>
-    //   <h1>Profiles</h1>
-    //   <table>
-    //     <thead>
-    //     <th>First Name</th>
-    //         <tr>
-    //             <th>Last Name</th>
-    //             <th>Email</th>
-    //             <th>Address</th>
-    //             <th>City</th>
-    //             <th>Post Code</th>
-    //             <th>Image</th>
-    //         </tr>
-    //     </thead>
-    //     <tbody>
-    //     {profiles.map(profile => (
-    //       <tr key={profile.id}>
-    //         <td>{profile.first_Name}</td>
-    //         <td>{profile.last_Name}</td>
-    //         <td>{profile.email}</td>
-    //         <td>{profile.address}</td>
-    //         <td>{profile.city}</td>
-    //         <td>{profile.post_Code}</td>
-    //         <td>
-    //           <img src={profile.image} alt={`${profile.first_Name} ${profile.last_Name}`} style={{ width: '50px', height: '50px' }} />
-    //         </td>
-    //       </tr>
-    //     ))}
-    //     </tbody>
-    //   </table>
-    // </div>
+    <Box maxW="container.lg" mx="auto" mt={8} p={6} borderWidth="1px" borderRadius="lg">
+      <Heading as="h2" size="xl" mb={4}>
+        Profile
+      </Heading>
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            <Th>First Name</Th>
+            <Th>Last Name</Th>
+            <Th>Email</Th>
+            <Th>Address</Th>
+            <Th>City</Th>
+            <Th>Post Code</Th>
+            <Th>Image</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>{profileData.first_Name}</Td>
+            <Td>{profileData.last_Name}</Td>
+            <Td>{profileData.email}</Td>
+            <Td>{profileData.address}</Td>
+            <Td>{profileData.city}</Td>
+            <Td>{profileData.post_Code}</Td>
+            <Td>
+              <Image src={profileData.image} alt={`${profileData.first_Name} ${profileData.last_Name}`} boxSize="50px" />
+            </Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    </Box>
   );
 }
 
